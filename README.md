@@ -1,0 +1,1 @@
+# Swashbuckle.AutoRestExtensions.core
