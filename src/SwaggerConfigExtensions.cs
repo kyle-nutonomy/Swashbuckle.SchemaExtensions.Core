@@ -1,5 +1,4 @@
 ﻿using Swashbuckle.AspNetCore.SwaggerGen;
-using Swashbuckle.SchemaExtensions.Core;
 
 namespace Swashbuckle.SchemaExtensions.Core
 {
