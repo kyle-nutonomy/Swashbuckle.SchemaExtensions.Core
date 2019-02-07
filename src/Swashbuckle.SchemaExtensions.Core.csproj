@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <PackageId>Swashbuckle.SchemaExtensions.Core</PackageId>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <Authors>Nutonomy</Authors>
     <Description>Enum type schema filter for Dotnet core Swashbuckle</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
