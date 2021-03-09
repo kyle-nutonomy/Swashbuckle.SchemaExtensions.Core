@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src", "src/Swashbuckle.SchemaExtensions.Core.csproj", "{5C1F7142-3EA3-487F-AD4E-8E301210058E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test/Swashbuckle.SchemaExtensions.Core.Tests.csproj", "{4C62A346-1337-4BFE-9447-1E3CEBC7BDBE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

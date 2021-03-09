@@ -1,21 +1,40 @@
-﻿using System.Reflection;
-using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerGen;
+﻿using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Any;
+using System;
 
 namespace Swashbuckle.SchemaExtensions.Core
 {
-    public class EnumTypeSchemaFilter  : ISchemaFilter
+    public class EnumTypeSchemaFilter : ISchemaFilter
     {
-        public void Apply(Schema model, SchemaFilterContext context)
+        public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {
-            if (context.SystemType.GetTypeInfo().IsEnum)
+            var type = context.Type;
+            if (type.IsEnum)
             {
-                // Add enum type information
-                model.Extensions.Add("x-ms-enum", new
+                var values = Enum.GetValues(type);
+                var valueArr = new OpenApiArray();
+
+                foreach (var value in values)
                 {
-                    name = context.SystemType.Name,
-                    modelAsString = false
-                });
+                    var item = new OpenApiObject
+                    {
+                        ["name"] = new OpenApiString(Enum.GetName(type, value)),
+                        ["value"] = new OpenApiString(value.ToString())
+                    };
+
+                    valueArr.Add(item);
+                }
+
+                schema.Extensions.Add(
+                    "x-ms-enum",
+                    new OpenApiObject
+                    {
+                        ["name"] = new OpenApiString(type.Name),
+                        ["modelAsString"] = new OpenApiBoolean(true),
+                        ["values"] = valueArr
+                    }
+                );
             }
         }
     }
